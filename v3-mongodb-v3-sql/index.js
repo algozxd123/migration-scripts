@@ -108,8 +108,9 @@ async function run() {
 
     // 1st pass: for each document create a new row and store id in a map
     for (const model of models) {
+      console.log(model.collectionName);
       const cursor = db.collection(model.collectionName).find();
-
+      
       while (await cursor.hasNext()) {
         const entry = await cursor.next();
         const row = transformEntry(entry, model);
@@ -125,6 +126,8 @@ async function run() {
     // 2nd pass: for each document's components & relations create the links in the right tables
 
     for (const model of models) {
+      console.log(model.collectionName);
+      //if(model.collectionName === 'nat_case_sum_cat') console.log(model);
       const cursor = db.collection(model.collectionName).find();
 
       while (await cursor.hasNext()) {

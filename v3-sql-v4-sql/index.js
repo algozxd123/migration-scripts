@@ -4,7 +4,7 @@ const { migrate } = require("./migrate");
 const { customMigrate } = require("./customMigrateLinks");
 
 async function f() {
-  await migrate();
+  //await migrate();
   await customMigrate();
 
   process.exit();
